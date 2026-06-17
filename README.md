@@ -1,66 +1,68 @@
+Read this in: English | [Português](README.pt-BR.md)
+
 # Stewart Ball-on-Plate
 
-Controle em cascata de uma plataforma de Stewart de 6 graus de liberdade, atuada
-por seis servos rotativos, equilibrando uma bola sobre uma placa resistiva.
-Microcontrolador Raspberry Pi Pico (RP2040). Malha externa (posicao da bola) gera
-a inclinacao desejada; malha interna (atitude, com IMU BNO085) aplica essa
-inclinacao corrigindo disturbios; a cinematica inversa converte a pose em seis
-angulos de servo.
+Cascade control of a 6-DOF Stewart platform driven by six rotary servos, balancing
+a ball on a resistive plate. Microcontroller: Raspberry Pi Pico (RP2040). The
+outer loop (ball position) produces the desired tilt; the inner loop (attitude,
+with a BNO085 IMU) applies that tilt while rejecting disturbances; inverse
+kinematics converts the pose into six servo angles.
 
-Codigo de apoio ao TCC de `<seu nome>`, `<instituicao / laboratorio>`,
-orientacao de `<orientador(a)>`. Titulo: `<titulo do TCC>`.
+Code supporting the undergraduate thesis of `<your name>`,
+`<institution / laboratory>`, advised by `<advisor>`. Title: `<thesis title>`.
 
 ## Hardware
 
 - Raspberry Pi Pico (RP2040)
-- Driver de servo PCA9685 (I2C), seis servos MG90D
-- IMU BNO085 (SPI1)
-- Touchscreen resistivo via SN74HC4066N
-- Fonte 5 V para os servos
+- PCA9685 servo driver (I2C), six MG90D servos
+- BNO085 IMU (SPI1)
+- Resistive touchscreen via SN74HC4066N
+- 5 V supply for the servos
 
-Os pinos efetivos estao em `config.h`, que e a fonte unica de verdade.
+The effective pins live in `config.h`, which is the single source of truth.
 
-## Estrutura
+## Structure
 
 ```
-StewartBallOnPlate/        (raiz = pasta do sketch Arduino)
+StewartBallOnPlate/        (root = Arduino sketch folder)
 ├── StewartBallOnPlate.ino
 ├── config.h, types.h
 ├── kinematics.*, imu_sensor.*, touch_sensor.*, servo_driver.*
 ├── attitude_ctrl.*, ball_ctrl.*, supervisor.*
-├── GUIA_DE_USO.md         como operar (comandos, telemetria, captura)
-├── MANUAL_TECNICO.md      modulos, manutencao, extensao, inconsistencias
+├── USER_GUIDE.md         how to operate (commands, telemetry, capture)
+├── TECHNICAL_MANUAL.md   modules, maintenance, extension, inconsistencies
 └── tools/
-    ├── telemetry_logger.py   captura/comando/plot (roda no PC)
-    ├── make_qr.py            gera QR do link do repositorio
-    └── scripts/              sequencias temporizadas (.txt)
+    ├── telemetry_logger.py   capture/command/plot (runs on the PC)
+    ├── make_qr.py            generates the repository-link QR code
+    └── scripts/              timed sequences (.txt)
 ```
 
-A raiz do repositorio e a propria pasta do sketch, entao o nome da pasta precisa
-casar com o nome do `.ino` (`StewartBallOnPlate`) para o Arduino IDE abri-la.
+The repository root is the sketch folder itself, so the folder name must match the
+`.ino` name (`StewartBallOnPlate`) for the Arduino IDE to open it.
 
-## Compilar e gravar
+## Build and flash
 
-1. Abra `StewartBallOnPlate.ino` no Arduino IDE com o nucleo RP2040 instalado.
-2. Instale as bibliotecas: Adafruit PWM Servo Driver Library e SparkFun BNO08x
+1. Open `StewartBallOnPlate.ino` in the Arduino IDE with the RP2040 core
+   installed.
+2. Install the libraries: Adafruit PWM Servo Driver Library and SparkFun BNO08x
    Arduino Library.
-3. Selecione a placa Raspberry Pi Pico e grave pela USB.
+3. Select the Raspberry Pi Pico board and flash over USB.
 
-Passo a passo completo, comandos e telemetria: ver `GUIA_DE_USO.md`.
+Full step-by-step, commands and telemetry: see `USER_GUIDE.md`.
 
-## Documentacao
+## Documentation
 
-Operacao (comandos seriais, modos, formato da telemetria, ferramenta de captura,
-procedimentos reproduziveis):
-- Portugues: `GUIA_DE_USO.md`
+Operation (serial commands, modes, telemetry format, capture tool, reproducible
+procedures):
 - English: `USER_GUIDE.md`
+- Português: `GUIA_DE_USO.md`
 
-Referencia interna (descricao de cada modulo, manutencao, como estender,
-divergencias conhecidas entre comentarios e codigo):
-- Portugues: `MANUAL_TECNICO.md`
+Internal reference (per-module description, maintenance, how to extend, known
+divergences between comments and code):
 - English: `TECHNICAL_MANUAL.md`
+- Português: `MANUAL_TECNICO.md`
 
-## Licenca
+## License
 
-Ver `LICENSE`. Confirme a politica de propriedade intelectual da instituicao
-antes de publicar.
+See `LICENSE`. Confirm your institution's intellectual property policy before
+publishing.
