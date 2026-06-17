@@ -8,8 +8,8 @@ outer loop (ball position) produces the desired tilt; the inner loop (attitude,
 with a BNO085 IMU) applies that tilt while rejecting disturbances; inverse
 kinematics converts the pose into six servo angles.
 
-Code supporting the undergraduate thesis of `<your name>`,
-`<institution / laboratory>`, advised by `<advisor>`. Title: `<thesis title>`.
+Code supporting the undergraduate thesis of Arthur Rolinski, UFPR (Universidade Federal do Paraná), advised by PhD. João Victor de Carvalho Fontes. 
+Title: 'Atualização Estrutural e Aplicação de Controle PID em Cascata para Plataforma de Stewart-Gough com 6 Graus de Liberdade e Sistema Bola e Placa'.
 
 ## Hardware
 
