@@ -1,0 +1,12 @@
+# Step response in ROLL only, 5° amplitude.
+# Format: <seconds_from_start>  <command>
+
+0.0    MODE ATT            # start in open-loop to settle at neutral
+0.5    POSE 0 0            # neutral
+1.0    MODE ATT            # switch to attitude-hold
+1.5    POSE 0 0            # ensure attitude ref is zero
+5.0    POSE 5 0            # STEP: 5° roll
+10.0   POSE 0 0            # step back to zero
+14.0   POSE -5 0           # STEP: -5° roll (check symmetry)
+19.0   POSE 0 0
+22.0   END

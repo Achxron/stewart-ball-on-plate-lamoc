@@ -1,0 +1,39 @@
+# fast_staircase.txt
+# Rapid succession of setpoints with only 1.5s between each step.
+# Tests whether the controller can keep up when given no time to fully settle.
+# This is close to the real-world demand during ball balancing, where the
+# outer loop issues new attitude setpoints at ~30-50Hz.
+# Roll axis only first, then pitch, then combined.
+
+0.0    MODE ATT
+1.0    POSE 0 0
+
+# Fast roll staircase (up)
+3.0    POSE 3 0
+4.5    POSE 6 0
+6.0    POSE 9 0
+7.5    POSE 12 0
+9.0    POSE 9 0
+10.5   POSE 6 0
+12.0   POSE 3 0
+13.5   POSE 0 0
+
+# Fast pitch staircase (up)
+16.0   POSE 0 3
+17.5   POSE 0 6
+19.0   POSE 0 9
+20.5   POSE 0 12
+22.0   POSE 0 9
+23.5   POSE 0 6
+25.0   POSE 0 3
+26.5   POSE 0 0
+
+# Combined diagonal staircase
+29.0   POSE 3 3
+30.5   POSE 6 6
+32.0   POSE 9 9
+33.5   POSE 6 6
+35.0   POSE 3 3
+36.5   POSE 0 0
+
+40.0   END
