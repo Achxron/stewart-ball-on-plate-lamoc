@@ -9,8 +9,8 @@ a inclinacao desejada; malha interna (atitude, com IMU BNO085) aplica essa
 inclinacao corrigindo disturbios; a cinematica inversa converte a pose em seis
 angulos de servo.
 
-Codigo de apoio ao TCC de `<seu nome>`, `<instituicao / laboratorio>`,
-orientacao de `<orientador(a)>`. Titulo: `<titulo do TCC>`.
+Codigo de apoio ao TCC de Arthur Rolinski, UFPR (Universidade Federal do Paraná), orientação do prof. Dr. João Victor de Carvalho Fontes.
+Titulo: 'Atualização Estrutural e Aplicação de Controle PID em Cascata para Plataforma de Stewart-Gough com 6 Graus de Liberdade e Sistema Bola e Placa'.
 
 ## Hardware
 
